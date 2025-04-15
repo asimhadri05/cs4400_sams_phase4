@@ -1,17 +1,17 @@
-// src/components/AddAirplane.js
+// src/components/AddPerson.js
 import React, { useState } from 'react';
 import '../App.css'; // Import the CSS
 
-function AddAirplane() {
+function AddPerson() {
   const [formData, setFormData] = useState({
-    airline_id: '',
-    tail_num: '',
-    seat_cap: '',
-    plane_type: '',
-    speed: '',
-    maintained: '',
     location_id: '',
-    model: ''
+    miles: '',
+    person_id: '',
+    first_name: '',
+    tax_id: '',
+    funds: '',
+    last_name: '',
+    experience: ''
   });
   const [message, setMessage] = useState('');
 
@@ -21,15 +21,16 @@ function AddAirplane() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Adjust endpoint as needed:
     try {
-      const res = await fetch('/api/add_airplane', {
+      const res = await fetch('/api/add_person', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
       const data = await res.json();
       if (res.ok) {
-        setMessage("Airplane added successfully.");
+        setMessage("Person added successfully.");
       } else {
         setMessage("Error: " + data.error);
       }
@@ -40,52 +41,46 @@ function AddAirplane() {
 
   return (
     <div className="container">
-      <h2>Add Airplane</h2>
+      <h2>Add Person</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          Airline ID:
-          <input type="text" name="airline_id" onChange={handleChange} required />
-        </label>
-        <br />
-        <label>
-          Tail Number:
-          <input type="text" name="tail_num" onChange={handleChange} required />
-        </label>
-        <br />
-        <label>
-          Seat Capacity:
-          <input type="number" name="seat_cap" onChange={handleChange} required />
-        </label>
-        <br />
-        <label>
-          Plane Type:
-          <input type="text" name="plane_type" onChange={handleChange} required />
-        </label>
-        <br />
-        <label>
-          Speed:
-          <input type="number" name="speed" onChange={handleChange} required />
-        </label>
-        <br />
-        <label>
-          Maintained:
-          <input type="text" name="maintained" onChange={handleChange} />
-        </label>
-        <br />
         <label>
           Location ID:
           <input type="text" name="location_id" onChange={handleChange} required />
         </label>
         <br />
         <label>
-          Model:
-          <input type="text" name="model" onChange={handleChange} />
+          Miles:
+          <input type="text" name="miles" onChange={handleChange} />
         </label>
         <br />
+        <label>
+          Person ID:
+          <input type="text" name="person_id" onChange={handleChange} required />
+        </label>
         <br />
         <label>
-          Neo:
-          <input type="text" name="neo" onChange={handleChange} />
+          First Name:
+          <input type="text" name="first_name" onChange={handleChange} required />
+        </label>
+        <br />
+        <label>
+          Tax ID:
+          <input type="text" name="tax_id" onChange={handleChange} required />
+        </label>
+        <br />
+        <label>
+          Funds:
+          <input type="text" name="funds" onChange={handleChange} />
+        </label>
+        <br />
+        <label>
+          Last Name:
+          <input type="text" name="last_name" onChange={handleChange} required />
+        </label>
+        <br />
+        <label>
+          Experience:
+          <input type="number" name="experience" onChange={handleChange} required />
         </label>
         <br />
         <button type="submit">Add</button>
@@ -96,4 +91,4 @@ function AddAirplane() {
   );
 }
 
-export default AddAirplane;
+export default AddPerson;
