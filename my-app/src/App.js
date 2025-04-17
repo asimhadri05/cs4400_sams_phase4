@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import AddAirplane from './components/AddAirplane';
-import AddAirport from './components/AddAirport';
+import AddAirport from './components/AddAirport.js';
 import AddPerson from './components/AddPerson';
 import GrantOrRevokePilotLicense from './components/GrantOrRevokePilotLicense';
 import OfferFlight from './components/OfferFlight';

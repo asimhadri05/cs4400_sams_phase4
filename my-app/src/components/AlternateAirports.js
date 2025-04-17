@@ -39,7 +39,7 @@ function AlternateAirports() {
                 <td>{airport.country}</td>
                 <td>{airport.num_airports}</td>
                 <td>{airport.airport_code_list}</td>
-                <td>{airport.airport_names_list}</td>
+                <td>{airport.airport_name_list}</td>
               </tr>
             ))}
           </tbody>

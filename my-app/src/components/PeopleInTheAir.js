@@ -49,7 +49,7 @@ function PeopleInTheAir() {
                 <td>{entry.num_pilots}</td>
                 <td>{entry.num_passengers}</td>
                 <td>{entry.joint_pilots_passengers}</td>
-                <td>{entry.persons_list}</td>
+                <td>{entry.person_list}</td>
               </tr>
             ))}
           </tbody>

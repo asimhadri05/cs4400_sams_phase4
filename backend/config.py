@@ -1,6 +1,7 @@
 DATABASE_CONFIG = {
     "host": "localhost",
-    "user": "your_db_username",
-    "password": "your_db_password",
-    "database": "your_sams_database"
+    "user": "root",
+    "password": "Aditya0569*",
+    "database": "flight_tracking",
+    "port": 3306
 }
