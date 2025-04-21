@@ -42,7 +42,7 @@ function AddPerson() {
       last_name:   formData.last_name  || null,
 
       // for a pilot these two will be non‐null, for a passenger these will be null
-      tax_id:      formData.tax_id.trim() === '' ? null : formData.tax_id.trim(),
+      tax_id:      formData.tax_id.trim() === '' || formData.tax_id.trim() === 'null' ? null : formData.tax_id.trim(),
       experience:  parseIntOrNull(formData.experience),
 
       // for a passenger these two will be non‐null, for a pilot these will be null
