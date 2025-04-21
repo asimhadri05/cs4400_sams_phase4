@@ -11,7 +11,8 @@ function AddAirplane() {
     speed: '',
     maintained: '',
     location_id: '',
-    model: ''
+    model: '',
+    neo: ''
   });
   const [message, setMessage] = useState('');
 

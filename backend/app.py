@@ -52,13 +52,14 @@ def add_airplane():
     maintained  = data.get('maintained')
     location_id = data.get('location_id')
     model       = data.get('model')  # can be None
+    neo         = data.get('neo')
     
     conn = None
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
         # Adjust the parameter order below to match your stored procedure
-        args = [tail_num, airline_id, seat_cap, plane_type, speed, maintained, location_id, model]
+        args = [airline_id,tail_num, seat_cap, speed,location_id,plane_type,maintained,model,neo]
         cursor.callproc('add_airplane', args)
         conn.commit()
         return jsonify({'message': 'Airplane added successfully.'})
@@ -72,13 +73,12 @@ def add_airplane():
 def add_airport():
     """
     Calls the 'add_airport' stored procedure.
-    Expects JSON with: state, airport_id, airport_name, international, country, city, location_id.
+    Expects JSON with: state, airport_id, airport_name, country, city, location_id.
     """
     data = request.get_json()
     state        = data.get('state')
     airport_id   = data.get('airport_id')
     airport_name = data.get('airport_name')
-    international = data.get('international')  # Boolean (True/False)
     country      = data.get('country')
     city         = data.get('city')
     location_id  = data.get('location_id')
@@ -87,7 +87,7 @@ def add_airport():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        args = [state, airport_id, airport_name, international, country, city, location_id]
+        args = [airport_id, airport_name, city, state, country, location_id]
         cursor.callproc('add_airport', args)
         conn.commit()
         return jsonify({'message': 'Airport added successfully.'})
@@ -117,7 +117,7 @@ def add_person():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        args = [location_id, miles, person_id, first_name, tax_id, funds, last_name, experience]
+        args = [person_id, first_name, last_name, location_id, tax_id, experience, miles,funds]
         cursor.callproc('add_person', args)
         conn.commit()
         return jsonify({'message': 'Person added successfully.'})
@@ -135,7 +135,6 @@ def pilot_license():
     The stored procedure should handle both actions based on input.
     """
     data = request.get_json()
-    action    = data.get('action')  # 'grant' or 'revoke'
     license_  = data.get('license')
     person_id = data.get('person_id')
     
@@ -143,7 +142,7 @@ def pilot_license():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        args = [action, license_, person_id]  # Adjust parameters as per your stored procedure
+        args = [person_id, license_]  # Adjust parameters as per your stored procedure
         cursor.callproc('grant_or_revoke_pilot_license', args)
         conn.commit()
         return jsonify({'message': 'Pilot license action completed successfully.'})
