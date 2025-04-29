@@ -159,6 +159,7 @@ def offer_flight():
     Expects JSON with: progress, cost, flight_id, route_id, next_time, airline, tail.
     """
     data = request.get_json()
+    print(data)
     progress  = data.get('progress')
     cost      = data.get('cost')
     flight_id = data.get('flight_id')
@@ -171,7 +172,7 @@ def offer_flight():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        args = [progress, cost, flight_id, route_id, next_time, airline, tail]
+        args = [flight_id, route_id, airline,tail, progress, next_time, cost]
         cursor.callproc('offer_flight', args)
         conn.commit()
         return jsonify({'message': 'Flight offered successfully.'})
