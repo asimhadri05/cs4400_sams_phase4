@@ -17,7 +17,7 @@ A full‐stack web application for tracking and managing flights. It consists of
 
 1. **Clone the repo**  
    ```bash
-   git clone https://github.com/your-org/flight-tracker.git
+   git clone https://github.com/asimhadri05/cs4400_sams_phase4.git
    cd flight-tracker
    ```
 
@@ -72,7 +72,7 @@ A full‐stack web application for tracking and managing flights. It consists of
 
 - **Frontend**:  
   - React (Create React App)  
-  - **Fetch API** for all HTTP calls (no Axios)  
+  - **Fetch API** for all HTTP calls
   - Functional components + React Hooks  
 
 - **Backend**:  
@@ -91,12 +91,12 @@ A full‐stack web application for tracking and managing flights. It consists of
 
 We split work evenly and collaborated closely on API design, data modeling, and integration testing.
 
-- **Member 1**  
+- Sathwik Nemani 
   - Designed and implemented React UI components  
   - Wrote all front-end fetch calls and state management  
   - Styled layouts, handled routing  
 
-- **Member 2**  
+- Aditya Simhadri 
   - Designed database schema in SQL Workbench  
   - Authored `functions.sql` and `views.sql`  
   - Built Flask endpoints that call those functions/views  
