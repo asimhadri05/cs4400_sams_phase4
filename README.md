@@ -24,9 +24,8 @@ A full‐stack web application for tracking and managing flights. It consists of
 2. **Database**  
    - Open **SQL Workbench**, connect to your local MySQL server.  
    - In the `db/` folder you’ll find:
-     - `schema.sql` — creates tables  
-     - `functions.sql` — user-defined functions  
-     - `views.sql` — views that the backend calls  
+     - `cs4400_sams_phase3_database_v0.sql` — creates tables  
+     - `cs4400_phase3_stored_procedures_team94_.sql` — user-defined functions, and views that the backend calls   
    - Run them **in order** to set up your schema, functions, and views.
 
 3. **Backend**  
