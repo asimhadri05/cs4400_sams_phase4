@@ -68,12 +68,12 @@ function OfferFlight() {
         <br />
         <label>
           Airline:
-          <input type="text" name="airline" onChange={handleChange} required />
+          <input type="text" name="airline" onChange={handleChange}/>
         </label>
         <br />
         <label>
           Tail:
-          <input type="text" name="tail" onChange={handleChange} required />
+          <input type="text" name="tail" onChange={handleChange}/>
         </label>
         <br />
         <button type="submit">Offer Flight</button>
